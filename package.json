@@ -1,0 +1,26 @@
+{
+  "name": "fullstack-part3-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build:ui": "rm -rf build && cd ../react-course/part2/phonebook/ && yarn run build && cp -r build ../../../fullstack-part3-backend",
+    "deploy": "fly deploy --no-cache",
+    "deploy:full": "yarn run build:ui && yarn run deploy",
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "nodemon": "^2.0.19"
+  }
+}
