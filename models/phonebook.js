@@ -1,30 +1,5 @@
 const mongoose = require('mongoose');
 
-require('dotenv').config();
-
-console.log(process.env.MONGODB_URI);
-const mongoUrlStart = process.env.MONGODB_URI;
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD;
-const mongoUrlEnd = process.env.MONGODB_URI_END;
-
-const url = `${mongoUrlStart}${username}:${password}${mongoUrlEnd}`;
-
-console.log('connecting to DB...', url);
-
-mongoose
-  .connect(url)
-  .then(() => {
-    console.log('connected to DB');
-  })
-  .catch(err => console.log(err.message));
-
-//create schema
-// const phonebookSchema = new mongoose.Schema({
-//   name: String,
-//   number: String,
-// });
-
 //schema validation
 const phonebookSchema = new mongoose.Schema({
   name: {
